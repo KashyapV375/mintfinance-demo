@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MintFinance Demo</title>
+  <meta name="description" content="Try MintFinance, a money app for teens, in your browser. Demo mode with sample data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="app/favicon.ico">
+  <script>
+    // On a phone, skip the frame and open the app full screen.
+    if (window.matchMedia('(max-width: 760px)').matches && !location.search.includes('frame')) {
+      location.replace('app/');
+    }
+  </script>
+  <style>
+    :root {
+      --porcelain: #F7F5EC;
+      --porcelain-dim: #EDE9DE;
+      --ink: #172319;
+      --ink-soft: #526355;
+      --euc900: #113C2C;
+      --euc600: #236D51;
+      --euc200: #C0E5D3;
+      --gold: #CFA348;
+      --gold700: #9D711D;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh;
+      background: radial-gradient(1200px 600px at 75% 10%, #DCF3E8 0%, var(--porcelain) 55%);
+      background-color: var(--porcelain);
+      color: var(--ink);
+      font-family: Manrope, system-ui, sans-serif;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 56px;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { width: 52px; height: 52px; border-radius: 50%; }
+    .brand span { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 30px; }
+    h1 {
+      margin-top: 28px;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 52px;
+      line-height: 1.02;
+      letter-spacing: -0.5px;
+    }
+    .lead { margin-top: 16px; font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 520px; }
+    .note {
+      margin-top: 22px;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #FFFDF8;
+      border: 1px solid rgba(23,35,25,0.12);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+    .note b { color: var(--euc600); }
+    h2 { margin-top: 34px; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold700); }
+    ol { margin-top: 12px; padding: 0; list-style: none; counter-reset: step; display: grid; gap: 10px; max-width: 540px; }
+    li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #FFFDF8;
+      border: 1px solid rgba(23,35,25,0.10);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    li::before {
+      content: counter(step);
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--euc900); color: var(--porcelain);
+      font-weight: 800; font-size: 14px;
+    }
+    li b { font-weight: 800; }
+    .links { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 13px 22px; border-radius: 999px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+    }
+    .btn.primary { background: var(--gold); color: var(--ink); }
+    .btn.ghost { border: 1px solid var(--euc600); color: var(--euc600); }
+    .phone {
+      width: 410px; height: 860px; max-height: calc(100vh - 40px);
+      padding: 12px;
+      border-radius: 58px;
+      background: #0E1A14;
+      box-shadow: 0 40px 80px rgba(17,60,44,0.28), inset 0 0 0 2px #2A3A31;
+      position: relative;
+    }
+    .phone iframe {
+      width: 100%; height: 100%;
+      border: 0; border-radius: 46px;
+      background: var(--porcelain);
+    }
+    footer { margin-top: 30px; font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; max-width: 540px; }
+    @media (max-width: 1000px) {
+      .wrap { grid-template-columns: 1fr; }
+      .phone { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section>
+      <div class="brand">
+        <img src="logo.png" alt="" onerror="this.style.display='none'">
+        <span>MintFinance</span>
+      </div>
+      <h1>Your first paycheck,<br>handled.</h1>
+      <p class="lead">
+        A money app for high schoolers: see where your money goes, dodge the scams aimed at teens,
+        and watch your savings grow into a forest. Guided by Koby the koala.
+      </p>
+      <p class="note">Tap <b>Try the demo</b> on the login screen to explore as <b>Rick</b>, a 16-year-old cashier. Your changes stay in this browser until you log out.</p>
+
+      <h2>Try these in the phone</h2>
+      <ol>
+        <li><span><b>Log money.</b> On the Tracker, tap <b>Spent</b>, type an amount, then a name like "tacos". The category fills itself in.</span></li>
+        <li><span><b>Scam Chat.</b> Games &rarr; Scam Chat. Type your own reply to the scammer, like "who is this? I'm asking my mom first", and see how they react.</span></li>
+        <li><span><b>Future You.</b> Insights &rarr; Meet Future You. Drag the slider and watch what investing a little each month becomes by 65.</span></li>
+        <li><span><b>Paycheck Decoder.</b> Enter hours worked to see where every missing dollar of a paycheck went.</span></li>
+      </ol>
+
+      <div class="links">
+        <a class="btn primary" href="app/">Open full screen</a>
+      </div>
+
+      <footer>
+        Built with React Native (Expo), TypeScript and Supabase for the 2026 Congressional App Challenge.
+        Works best in Chrome, Safari or Edge. On a phone, this page opens the app full screen.
+      </footer>
+    </section>
+
+    <div class="phone" aria-label="MintFinance running in a phone frame">
+      <iframe src="app/" title="MintFinance app demo" allow="clipboard-write"></iframe>
+    </div>
+  </main>
+</body>
+</html>
